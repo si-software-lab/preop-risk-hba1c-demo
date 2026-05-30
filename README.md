@@ -21,9 +21,9 @@
 
 ### Author & Acknowledgments
 
-Corresponding author: David Balkcom, MPH, Principal Data Engineer, Quality Measurement Group, IT Vendor Services, United States. Contact: castle.palaces8l@icloud.com.
-
-Acknowledgments: Andrea Pitkus, PhD.
+ - David Balkcom, MPH, Principal Data Engineer, Quality Measurement Group,
+ IT Vendor Services, United States. Contact: castle.palaces8l@icloud.com.
+Acknowledgments: Andrea Pitkus, PhD (testing methods alignment).
 
 ### HbA1c Specimen Clarification
 

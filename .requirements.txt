@@ -1,0 +1,44 @@
+python-dotenv
+colorama
+pyfiglet
+pandas>=2.0.0
+numpy>=1.26.0
+requests>=2.31.0
+matplotlib>=3.8.0
+azure-cosmos>=4.6.0
+
+# optional: only needed for RUN_PREDICTION=true / --enable-prediction.
+# On macOS, adelie requires OpenMP first (for example, libomp via Homebrew or llvm-openmp via conda).
+# adelie>=1.0.0
+
+
+
+
+## mechanics
+# pythoncnc
+
+
+# fastapi
+# uvicorn
+# arcPy
+
+
+# openai
+# wolframalpha
+######### dateutil
+# neo4j
+# graphdatascience
+# scikit-learn
+
+
+# tensorflow
+# keras
+# randomforest
+# pca
+# kmeans
+# nonsupervisedclusters
+# kneighbors
+# classes
+
+
+###### pip install openai langchain langchain-community tiktoken
