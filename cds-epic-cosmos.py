@@ -1,14 +1,14 @@
 """
 Pre-Surgical Hemoglobin-A1c Risk CDS Pipeline
-(Epic EHI -> Cosmos -> tiered CDS actions)
+(External clinical data -> Azure Cosmos DB -> tiered CDS actions)
 
-- use pre-op serum measured HbA1c
+- use pre-op measured HbA1c
 - optionally predict HbA1c (linear) for missing/stale labs using sparse regression (LASSO via adelie)
-- fork downstream behavior using NSQIP Simplified Diabetes Surgical Risk Model thresholds:
+- assign downstream behavior using configurable preoperative HbA1c optimization tiers:
     * info card only:    a1c < 7.5
     * info card & warning: 7.5 <= a1c <= 8.5
     * pre-operative surgical critical issue EMR workflow block: a1c > 8.5
-- emit FHIR artifacts back to epic (CommunicationRequest always; Task only for critical)
+- generate FHIR-ready CDS resources (CommunicationRequest always; Task only for critical)
 """
 
 from __future__ import annotations
@@ -44,15 +44,15 @@ class Settings:
     low_threshold: float   # hba1c low-risk cutoff (default 7.5)
     high_threshold: float  # hba1c high-risk cutoff (default 8.5)
 
-    # legacy single-threshold mode (optional)
-    H: Optional[float] = None
-    delta: Optional[float] = None
-
     dry_run: bool
     plot: bool
 
     training_csv: Optional[str]  # optional: path to historical training data
     enable_prediction: bool      # if true, predict hba1c when missing
+
+    # legacy single-threshold mode (optional)
+    H: Optional[float] = None
+    delta: Optional[float] = None
 
 
 def load_settings(args: argparse.Namespace) -> Settings:
@@ -66,7 +66,7 @@ def load_settings(args: argparse.Namespace) -> Settings:
     container_labs = os.getenv("CONTAINER_LABS", "NSQIP_PREOP_LABS").strip()
     container_vitals = os.getenv("CONTAINER_VITALS", "PREOP_VITALS").strip()
 
-    fhir_base = os.getenv("FHIR_BASE", "https://openepic.example.org/fhir").strip()
+    fhir_base = os.getenv("FHIR_BASE", "").strip()
     oauth_bearer = os.getenv("OAUTH_BEARER", "").strip()
 
     preop_date = args.preop_date or os.getenv("PREOP_DATE", date.today().isoformat()).strip()
@@ -75,7 +75,6 @@ def load_settings(args: argparse.Namespace) -> Settings:
     low_threshold = float(args.low if getattr(args, "low", None) is not None else os.getenv("HBA1C_LOW_THRESHOLD", "7.5"))
     high_threshold = float(args.high if getattr(args, "high", None) is not None else os.getenv("HBA1C_HIGH_THRESHOLD", "8.5"))
 
-    # FixMe: look to eliminate if possible
     # legacy single-threshold mode (optional; will be ignored if low/high provided)
     H = args.H if getattr(args, "H", None) is not None else (float(os.getenv("HBA1C_THRESHOLD_H", "0")) or None)
     delta = args.delta if getattr(args, "delta", None) is not None else (float(os.getenv("HBA1C_THRESHOLD_DELTA", "0")) or None)
@@ -499,7 +498,7 @@ def main() -> int:
     df = df_pat.merge(df_labs, on="patient_id", how="left").merge(df_vitals, on="patient_id", how="left")
     df = add_age(df)
 
-    # optional: predict a1c where missing (smoke-test)
+    # optional: predict a1c where missing
     model_info = {"trained": False}
     if settings.enable_prediction:
         pred_a1c, model_info = fit_predict_a1c_with_adelie(df, settings.training_csv)
@@ -523,9 +522,12 @@ def main() -> int:
         axis=1,
     )
 
-    # emit resulting card back to epic in FHIR format
-    if not settings.oauth_bearer and not settings.dry_run:
-        raise RuntimeError("OAUTH_BEARER is missing. Set it or run with --dry-run.")
+    # generate or send FHIR-ready CDS resources
+    if not settings.dry_run:
+        if not settings.fhir_base:
+            raise RuntimeError("FHIR_BASE is missing. Set it or run with --dry-run.")
+        if not settings.oauth_bearer:
+            raise RuntimeError("OAUTH_BEARER is missing. Set it or run with --dry-run.")
     send_fhir_alerts(df, settings)
 
     # optional viz
@@ -555,5 +557,3 @@ if __name__ == "__main__":
     raise SystemExit(main())
 
 # powered by riparianOne
-
-

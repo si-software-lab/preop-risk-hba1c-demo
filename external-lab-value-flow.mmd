@@ -1,0 +1,8 @@
+flowchart TD
+    A["EHI or External Clinical Source"] --> B["FHIR Observation<br/>HbA1c LOINC 4548-4"]
+    B --> C["Azure Cosmos DB<br/>Clinical data layer"]
+    C --> D["Observation.valueQuantity %<br/>Observation.effectiveDateTime"]
+    D --> E["Pre-op HbA1c CDS Pipeline"]
+    E --> F["Risk Tiering<br/>info / warning / critical"]
+    F --> G["FHIR-ready CDS Resources<br/>CommunicationRequest / Task"]
+    G --> H["Epic workflow integration review"]
