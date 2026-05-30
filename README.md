@@ -3,7 +3,7 @@
 #### Epic EHI pre-surgical lab value for HbA1c (Hemoglobin A1c)
 
 ---
-- Inputs: de-identified patient identifiers
+- Inputs: de-identified patient episode identifiers (`pat_eid`)
 
 - Uses: 10 core USCDI v1 data elements in a sample clinical data shape
 
@@ -56,9 +56,10 @@ flowchart TD
 
 ### Reproducible Notebook Procedure
 
-Use [preop_hba1c_reproducible_workflow.ipynb](preop_hba1c_reproducible_workflow.ipynb) to run the demo workflow end to end.
+Use [preop_hba1c_cds_workflow.ipynb](preop_hba1c_cds_workflow.ipynb) to run the demo workflow end to end.
 
 - Default mode is `DATA_SOURCE=sample` for a credential-free walkthrough.
+- Sample mode reads [sample-hba1c-cohort.json](sample-hba1c-cohort.json), a 64-patient synthetic cohort keyed by `pat_eid`.
 - Base runtime dependencies are `python-dotenv pandas numpy requests matplotlib azure-cosmos`.
 - Set values from `.env.example` and use `DATA_SOURCE=cosmos` to run against Azure Cosmos DB.
 - FHIR delivery is review-only by default; the notebook generates `CommunicationRequest` and `Task` resources without sending them.

@@ -1,0 +1,1368 @@
+{
+  "metadata": {
+    "description": "Synthetic de-identified preoperative HbA1c demo cohort.",
+    "preop_date": "2026-05-01",
+    "record_count": 64,
+    "identifier_field": "pat_eid",
+    "hba1c_loinc": "4548-4",
+    "random_seed": 20260530
+  },
+  "patients": [
+    {
+      "pat_eid": "PAT-EID-0001",
+      "encounter_id": "ENC-20260501-0001",
+      "preop_date": "2026-05-01",
+      "birthdate": "1973-07-15",
+      "gender": "male",
+      "surgical_risk": "low"
+    },
+    {
+      "pat_eid": "PAT-EID-0002",
+      "encounter_id": "ENC-20260501-0002",
+      "preop_date": "2026-05-01",
+      "birthdate": "1990-05-08",
+      "gender": "female",
+      "surgical_risk": "low"
+    },
+    {
+      "pat_eid": "PAT-EID-0003",
+      "encounter_id": "ENC-20260501-0003",
+      "preop_date": "2026-05-01",
+      "birthdate": "1959-06-26",
+      "gender": "female",
+      "surgical_risk": "low"
+    },
+    {
+      "pat_eid": "PAT-EID-0004",
+      "encounter_id": "ENC-20260501-0004",
+      "preop_date": "2026-05-01",
+      "birthdate": "1991-10-19",
+      "gender": "female",
+      "surgical_risk": "low"
+    },
+    {
+      "pat_eid": "PAT-EID-0005",
+      "encounter_id": "ENC-20260501-0005",
+      "preop_date": "2026-05-01",
+      "birthdate": "1946-07-11",
+      "gender": "male",
+      "surgical_risk": "moderate"
+    },
+    {
+      "pat_eid": "PAT-EID-0006",
+      "encounter_id": "ENC-20260501-0006",
+      "preop_date": "2026-05-01",
+      "birthdate": "1950-01-09",
+      "gender": "female",
+      "surgical_risk": "high"
+    },
+    {
+      "pat_eid": "PAT-EID-0007",
+      "encounter_id": "ENC-20260501-0007",
+      "preop_date": "2026-05-01",
+      "birthdate": "1949-03-07",
+      "gender": "male",
+      "surgical_risk": "low"
+    },
+    {
+      "pat_eid": "PAT-EID-0008",
+      "encounter_id": "ENC-20260501-0008",
+      "preop_date": "2026-05-01",
+      "birthdate": "1979-04-18",
+      "gender": "female",
+      "surgical_risk": "low"
+    },
+    {
+      "pat_eid": "PAT-EID-0009",
+      "encounter_id": "ENC-20260501-0009",
+      "preop_date": "2026-05-01",
+      "birthdate": "1982-10-07",
+      "gender": "female",
+      "surgical_risk": "high"
+    },
+    {
+      "pat_eid": "PAT-EID-0010",
+      "encounter_id": "ENC-20260501-0010",
+      "preop_date": "2026-05-01",
+      "birthdate": "1949-09-26",
+      "gender": "female",
+      "surgical_risk": "moderate"
+    },
+    {
+      "pat_eid": "PAT-EID-0011",
+      "encounter_id": "ENC-20260501-0011",
+      "preop_date": "2026-05-01",
+      "birthdate": "1975-04-26",
+      "gender": "male",
+      "surgical_risk": "moderate"
+    },
+    {
+      "pat_eid": "PAT-EID-0012",
+      "encounter_id": "ENC-20260501-0012",
+      "preop_date": "2026-05-01",
+      "birthdate": "1962-07-01",
+      "gender": "male",
+      "surgical_risk": "moderate"
+    },
+    {
+      "pat_eid": "PAT-EID-0013",
+      "encounter_id": "ENC-20260501-0013",
+      "preop_date": "2026-05-01",
+      "birthdate": "1963-02-22",
+      "gender": "male",
+      "surgical_risk": "moderate"
+    },
+    {
+      "pat_eid": "PAT-EID-0014",
+      "encounter_id": "ENC-20260501-0014",
+      "preop_date": "2026-05-01",
+      "birthdate": "1952-11-08",
+      "gender": "female",
+      "surgical_risk": "high"
+    },
+    {
+      "pat_eid": "PAT-EID-0015",
+      "encounter_id": "ENC-20260501-0015",
+      "preop_date": "2026-05-01",
+      "birthdate": "1959-02-15",
+      "gender": "male",
+      "surgical_risk": "low"
+    },
+    {
+      "pat_eid": "PAT-EID-0016",
+      "encounter_id": "ENC-20260501-0016",
+      "preop_date": "2026-05-01",
+      "birthdate": "1983-01-06",
+      "gender": "male",
+      "surgical_risk": "moderate"
+    },
+    {
+      "pat_eid": "PAT-EID-0017",
+      "encounter_id": "ENC-20260501-0017",
+      "preop_date": "2026-05-01",
+      "birthdate": "1943-09-18",
+      "gender": "female",
+      "surgical_risk": "high"
+    },
+    {
+      "pat_eid": "PAT-EID-0018",
+      "encounter_id": "ENC-20260501-0018",
+      "preop_date": "2026-05-01",
+      "birthdate": "1986-06-08",
+      "gender": "male",
+      "surgical_risk": "low"
+    },
+    {
+      "pat_eid": "PAT-EID-0019",
+      "encounter_id": "ENC-20260501-0019",
+      "preop_date": "2026-05-01",
+      "birthdate": "1967-12-27",
+      "gender": "female",
+      "surgical_risk": "high"
+    },
+    {
+      "pat_eid": "PAT-EID-0020",
+      "encounter_id": "ENC-20260501-0020",
+      "preop_date": "2026-05-01",
+      "birthdate": "1979-02-20",
+      "gender": "male",
+      "surgical_risk": "moderate"
+    },
+    {
+      "pat_eid": "PAT-EID-0021",
+      "encounter_id": "ENC-20260501-0021",
+      "preop_date": "2026-05-01",
+      "birthdate": "1947-03-16",
+      "gender": "male",
+      "surgical_risk": "low"
+    },
+    {
+      "pat_eid": "PAT-EID-0022",
+      "encounter_id": "ENC-20260501-0022",
+      "preop_date": "2026-05-01",
+      "birthdate": "1974-10-11",
+      "gender": "male",
+      "surgical_risk": "high"
+    },
+    {
+      "pat_eid": "PAT-EID-0023",
+      "encounter_id": "ENC-20260501-0023",
+      "preop_date": "2026-05-01",
+      "birthdate": "1972-02-14",
+      "gender": "male",
+      "surgical_risk": "low"
+    },
+    {
+      "pat_eid": "PAT-EID-0024",
+      "encounter_id": "ENC-20260501-0024",
+      "preop_date": "2026-05-01",
+      "birthdate": "1981-07-22",
+      "gender": "female",
+      "surgical_risk": "moderate"
+    },
+    {
+      "pat_eid": "PAT-EID-0025",
+      "encounter_id": "ENC-20260501-0025",
+      "preop_date": "2026-05-01",
+      "birthdate": "1950-11-02",
+      "gender": "male",
+      "surgical_risk": "moderate"
+    },
+    {
+      "pat_eid": "PAT-EID-0026",
+      "encounter_id": "ENC-20260501-0026",
+      "preop_date": "2026-05-01",
+      "birthdate": "1969-06-23",
+      "gender": "nonbinary",
+      "surgical_risk": "high"
+    },
+    {
+      "pat_eid": "PAT-EID-0027",
+      "encounter_id": "ENC-20260501-0027",
+      "preop_date": "2026-05-01",
+      "birthdate": "1947-12-20",
+      "gender": "male",
+      "surgical_risk": "moderate"
+    },
+    {
+      "pat_eid": "PAT-EID-0028",
+      "encounter_id": "ENC-20260501-0028",
+      "preop_date": "2026-05-01",
+      "birthdate": "1961-04-13",
+      "gender": "unknown",
+      "surgical_risk": "moderate"
+    },
+    {
+      "pat_eid": "PAT-EID-0029",
+      "encounter_id": "ENC-20260501-0029",
+      "preop_date": "2026-05-01",
+      "birthdate": "1953-09-07",
+      "gender": "female",
+      "surgical_risk": "moderate"
+    },
+    {
+      "pat_eid": "PAT-EID-0030",
+      "encounter_id": "ENC-20260501-0030",
+      "preop_date": "2026-05-01",
+      "birthdate": "1971-10-28",
+      "gender": "male",
+      "surgical_risk": "low"
+    },
+    {
+      "pat_eid": "PAT-EID-0031",
+      "encounter_id": "ENC-20260501-0031",
+      "preop_date": "2026-05-01",
+      "birthdate": "1946-02-26",
+      "gender": "male",
+      "surgical_risk": "low"
+    },
+    {
+      "pat_eid": "PAT-EID-0032",
+      "encounter_id": "ENC-20260501-0032",
+      "preop_date": "2026-05-01",
+      "birthdate": "1955-04-23",
+      "gender": "male",
+      "surgical_risk": "low"
+    },
+    {
+      "pat_eid": "PAT-EID-0033",
+      "encounter_id": "ENC-20260501-0033",
+      "preop_date": "2026-05-01",
+      "birthdate": "1987-11-13",
+      "gender": "male",
+      "surgical_risk": "low"
+    },
+    {
+      "pat_eid": "PAT-EID-0034",
+      "encounter_id": "ENC-20260501-0034",
+      "preop_date": "2026-05-01",
+      "birthdate": "1972-01-15",
+      "gender": "male",
+      "surgical_risk": "moderate"
+    },
+    {
+      "pat_eid": "PAT-EID-0035",
+      "encounter_id": "ENC-20260501-0035",
+      "preop_date": "2026-05-01",
+      "birthdate": "1956-07-28",
+      "gender": "male",
+      "surgical_risk": "low"
+    },
+    {
+      "pat_eid": "PAT-EID-0036",
+      "encounter_id": "ENC-20260501-0036",
+      "preop_date": "2026-05-01",
+      "birthdate": "1950-11-19",
+      "gender": "female",
+      "surgical_risk": "moderate"
+    },
+    {
+      "pat_eid": "PAT-EID-0037",
+      "encounter_id": "ENC-20260501-0037",
+      "preop_date": "2026-05-01",
+      "birthdate": "1950-06-13",
+      "gender": "male",
+      "surgical_risk": "low"
+    },
+    {
+      "pat_eid": "PAT-EID-0038",
+      "encounter_id": "ENC-20260501-0038",
+      "preop_date": "2026-05-01",
+      "birthdate": "1966-12-08",
+      "gender": "male",
+      "surgical_risk": "moderate"
+    },
+    {
+      "pat_eid": "PAT-EID-0039",
+      "encounter_id": "ENC-20260501-0039",
+      "preop_date": "2026-05-01",
+      "birthdate": "1986-10-09",
+      "gender": "unknown",
+      "surgical_risk": "low"
+    },
+    {
+      "pat_eid": "PAT-EID-0040",
+      "encounter_id": "ENC-20260501-0040",
+      "preop_date": "2026-05-01",
+      "birthdate": "1971-03-15",
+      "gender": "male",
+      "surgical_risk": "low"
+    },
+    {
+      "pat_eid": "PAT-EID-0041",
+      "encounter_id": "ENC-20260501-0041",
+      "preop_date": "2026-05-01",
+      "birthdate": "1986-03-27",
+      "gender": "female",
+      "surgical_risk": "moderate"
+    },
+    {
+      "pat_eid": "PAT-EID-0042",
+      "encounter_id": "ENC-20260501-0042",
+      "preop_date": "2026-05-01",
+      "birthdate": "1990-10-09",
+      "gender": "female",
+      "surgical_risk": "low"
+    },
+    {
+      "pat_eid": "PAT-EID-0043",
+      "encounter_id": "ENC-20260501-0043",
+      "preop_date": "2026-05-01",
+      "birthdate": "1981-12-14",
+      "gender": "male",
+      "surgical_risk": "high"
+    },
+    {
+      "pat_eid": "PAT-EID-0044",
+      "encounter_id": "ENC-20260501-0044",
+      "preop_date": "2026-05-01",
+      "birthdate": "1992-09-16",
+      "gender": "female",
+      "surgical_risk": "moderate"
+    },
+    {
+      "pat_eid": "PAT-EID-0045",
+      "encounter_id": "ENC-20260501-0045",
+      "preop_date": "2026-05-01",
+      "birthdate": "1944-11-20",
+      "gender": "male",
+      "surgical_risk": "moderate"
+    },
+    {
+      "pat_eid": "PAT-EID-0046",
+      "encounter_id": "ENC-20260501-0046",
+      "preop_date": "2026-05-01",
+      "birthdate": "1977-10-11",
+      "gender": "female",
+      "surgical_risk": "moderate"
+    },
+    {
+      "pat_eid": "PAT-EID-0047",
+      "encounter_id": "ENC-20260501-0047",
+      "preop_date": "2026-05-01",
+      "birthdate": "1983-08-06",
+      "gender": "female",
+      "surgical_risk": "high"
+    },
+    {
+      "pat_eid": "PAT-EID-0048",
+      "encounter_id": "ENC-20260501-0048",
+      "preop_date": "2026-05-01",
+      "birthdate": "1975-11-05",
+      "gender": "female",
+      "surgical_risk": "moderate"
+    },
+    {
+      "pat_eid": "PAT-EID-0049",
+      "encounter_id": "ENC-20260501-0049",
+      "preop_date": "2026-05-01",
+      "birthdate": "1973-10-28",
+      "gender": "female",
+      "surgical_risk": "moderate"
+    },
+    {
+      "pat_eid": "PAT-EID-0050",
+      "encounter_id": "ENC-20260501-0050",
+      "preop_date": "2026-05-01",
+      "birthdate": "1955-03-10",
+      "gender": "female",
+      "surgical_risk": "high"
+    },
+    {
+      "pat_eid": "PAT-EID-0051",
+      "encounter_id": "ENC-20260501-0051",
+      "preop_date": "2026-05-01",
+      "birthdate": "1952-04-25",
+      "gender": "male",
+      "surgical_risk": "moderate"
+    },
+    {
+      "pat_eid": "PAT-EID-0052",
+      "encounter_id": "ENC-20260501-0052",
+      "preop_date": "2026-05-01",
+      "birthdate": "1966-05-15",
+      "gender": "female",
+      "surgical_risk": "moderate"
+    },
+    {
+      "pat_eid": "PAT-EID-0053",
+      "encounter_id": "ENC-20260501-0053",
+      "preop_date": "2026-05-01",
+      "birthdate": "1978-08-18",
+      "gender": "male",
+      "surgical_risk": "low"
+    },
+    {
+      "pat_eid": "PAT-EID-0054",
+      "encounter_id": "ENC-20260501-0054",
+      "preop_date": "2026-05-01",
+      "birthdate": "1952-05-25",
+      "gender": "female",
+      "surgical_risk": "low"
+    },
+    {
+      "pat_eid": "PAT-EID-0055",
+      "encounter_id": "ENC-20260501-0055",
+      "preop_date": "2026-05-01",
+      "birthdate": "1977-02-19",
+      "gender": "male",
+      "surgical_risk": "moderate"
+    },
+    {
+      "pat_eid": "PAT-EID-0056",
+      "encounter_id": "ENC-20260501-0056",
+      "preop_date": "2026-05-01",
+      "birthdate": "1968-09-21",
+      "gender": "female",
+      "surgical_risk": "moderate"
+    },
+    {
+      "pat_eid": "PAT-EID-0057",
+      "encounter_id": "ENC-20260501-0057",
+      "preop_date": "2026-05-01",
+      "birthdate": "1960-05-27",
+      "gender": "male",
+      "surgical_risk": "moderate"
+    },
+    {
+      "pat_eid": "PAT-EID-0058",
+      "encounter_id": "ENC-20260501-0058",
+      "preop_date": "2026-05-01",
+      "birthdate": "1951-08-22",
+      "gender": "unknown",
+      "surgical_risk": "moderate"
+    },
+    {
+      "pat_eid": "PAT-EID-0059",
+      "encounter_id": "ENC-20260501-0059",
+      "preop_date": "2026-05-01",
+      "birthdate": "1989-06-03",
+      "gender": "female",
+      "surgical_risk": "low"
+    },
+    {
+      "pat_eid": "PAT-EID-0060",
+      "encounter_id": "ENC-20260501-0060",
+      "preop_date": "2026-05-01",
+      "birthdate": "1959-11-19",
+      "gender": "female",
+      "surgical_risk": "low"
+    },
+    {
+      "pat_eid": "PAT-EID-0061",
+      "encounter_id": "ENC-20260501-0061",
+      "preop_date": "2026-05-01",
+      "birthdate": "1979-09-08",
+      "gender": "female",
+      "surgical_risk": "moderate"
+    },
+    {
+      "pat_eid": "PAT-EID-0062",
+      "encounter_id": "ENC-20260501-0062",
+      "preop_date": "2026-05-01",
+      "birthdate": "1950-01-20",
+      "gender": "male",
+      "surgical_risk": "high"
+    },
+    {
+      "pat_eid": "PAT-EID-0063",
+      "encounter_id": "ENC-20260501-0063",
+      "preop_date": "2026-05-01",
+      "birthdate": "1989-06-26",
+      "gender": "female",
+      "surgical_risk": "moderate"
+    },
+    {
+      "pat_eid": "PAT-EID-0064",
+      "encounter_id": "ENC-20260501-0064",
+      "preop_date": "2026-05-01",
+      "birthdate": "1954-11-26",
+      "gender": "male",
+      "surgical_risk": "high"
+    }
+  ],
+  "labs": [
+    {
+      "pat_eid": "PAT-EID-0001",
+      "loinc": "4548-4",
+      "a1c": 6.7,
+      "unit": "%",
+      "lab_time": "2026-04-13T09:25:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0002",
+      "loinc": "4548-4",
+      "a1c": 8.3,
+      "unit": "%",
+      "lab_time": "2026-04-04T13:04:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0003",
+      "loinc": "4548-4",
+      "a1c": 9.8,
+      "unit": "%",
+      "lab_time": "2026-04-22T13:56:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0004",
+      "loinc": "4548-4",
+      "a1c": 6.6,
+      "unit": "%",
+      "lab_time": "2026-04-04T16:33:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0005",
+      "loinc": "4548-4",
+      "a1c": 8.2,
+      "unit": "%",
+      "lab_time": "2026-04-11T14:18:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0006",
+      "loinc": "4548-4",
+      "a1c": 9.8,
+      "unit": "%",
+      "lab_time": "2026-04-11T10:54:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0007",
+      "loinc": "4548-4",
+      "a1c": 7.4,
+      "unit": "%",
+      "lab_time": "2026-04-22T08:54:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0009",
+      "loinc": "4548-4",
+      "a1c": 10.6,
+      "unit": "%",
+      "lab_time": "2026-04-09T11:09:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0010",
+      "loinc": "4548-4",
+      "a1c": 6.7,
+      "unit": "%",
+      "lab_time": "2026-04-18T16:00:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0011",
+      "loinc": "4548-4",
+      "a1c": 8.0,
+      "unit": "%",
+      "lab_time": "2026-04-04T12:09:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0012",
+      "loinc": "4548-4",
+      "a1c": 8.8,
+      "unit": "%",
+      "lab_time": "2026-04-25T08:27:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0013",
+      "loinc": "4548-4",
+      "a1c": 6.0,
+      "unit": "%",
+      "lab_time": "2026-04-27T13:07:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0014",
+      "loinc": "4548-4",
+      "a1c": 8.4,
+      "unit": "%",
+      "lab_time": "2026-04-20T14:13:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0015",
+      "loinc": "4548-4",
+      "a1c": 9.0,
+      "unit": "%",
+      "lab_time": "2026-04-20T12:49:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0017",
+      "loinc": "4548-4",
+      "a1c": 7.6,
+      "unit": "%",
+      "lab_time": "2026-04-08T12:05:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0018",
+      "loinc": "4548-4",
+      "a1c": 10.5,
+      "unit": "%",
+      "lab_time": "2026-04-15T14:41:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0019",
+      "loinc": "4548-4",
+      "a1c": 6.7,
+      "unit": "%",
+      "lab_time": "2026-04-15T16:11:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0020",
+      "loinc": "4548-4",
+      "a1c": 8.0,
+      "unit": "%",
+      "lab_time": "2026-04-12T08:45:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0021",
+      "loinc": "4548-4",
+      "a1c": 9.6,
+      "unit": "%",
+      "lab_time": "2026-04-13T14:09:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0022",
+      "loinc": "4548-4",
+      "a1c": 6.3,
+      "unit": "%",
+      "lab_time": "2026-04-08T08:09:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0023",
+      "loinc": "4548-4",
+      "a1c": 7.8,
+      "unit": "%",
+      "lab_time": "2026-04-01T08:34:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0025",
+      "loinc": "4548-4",
+      "a1c": 6.8,
+      "unit": "%",
+      "lab_time": "2026-04-06T15:53:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0026",
+      "loinc": "4548-4",
+      "a1c": 8.5,
+      "unit": "%",
+      "lab_time": "2026-04-08T15:42:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0027",
+      "loinc": "4548-4",
+      "a1c": 9.7,
+      "unit": "%",
+      "lab_time": "2026-04-23T16:41:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0028",
+      "loinc": "4548-4",
+      "a1c": 6.0,
+      "unit": "%",
+      "lab_time": "2026-04-02T14:44:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0029",
+      "loinc": "4548-4",
+      "a1c": 7.5,
+      "unit": "%",
+      "lab_time": "2026-04-09T10:49:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0030",
+      "loinc": "4548-4",
+      "a1c": 9.3,
+      "unit": "%",
+      "lab_time": "2026-04-22T15:52:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0031",
+      "loinc": "4548-4",
+      "a1c": 7.0,
+      "unit": "%",
+      "lab_time": "2026-04-04T08:48:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0033",
+      "loinc": "4548-4",
+      "a1c": 10.5,
+      "unit": "%",
+      "lab_time": "2026-04-17T14:28:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0034",
+      "loinc": "4548-4",
+      "a1c": 6.7,
+      "unit": "%",
+      "lab_time": "2026-04-12T14:55:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0035",
+      "loinc": "4548-4",
+      "a1c": 8.3,
+      "unit": "%",
+      "lab_time": "2026-04-25T11:39:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0036",
+      "loinc": "4548-4",
+      "a1c": 9.5,
+      "unit": "%",
+      "lab_time": "2026-04-08T14:59:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0037",
+      "loinc": "4548-4",
+      "a1c": 6.3,
+      "unit": "%",
+      "lab_time": "2026-04-05T11:22:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0038",
+      "loinc": "4548-4",
+      "a1c": 7.6,
+      "unit": "%",
+      "lab_time": "2026-04-07T14:20:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0039",
+      "loinc": "4548-4",
+      "a1c": 9.2,
+      "unit": "%",
+      "lab_time": "2026-04-09T09:51:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0041",
+      "loinc": "4548-4",
+      "a1c": 8.4,
+      "unit": "%",
+      "lab_time": "2026-04-01T10:29:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0042",
+      "loinc": "4548-4",
+      "a1c": 10.3,
+      "unit": "%",
+      "lab_time": "2026-04-22T10:25:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0043",
+      "loinc": "4548-4",
+      "a1c": 6.1,
+      "unit": "%",
+      "lab_time": "2026-04-28T11:40:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0044",
+      "loinc": "4548-4",
+      "a1c": 8.3,
+      "unit": "%",
+      "lab_time": "2026-04-21T14:38:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0045",
+      "loinc": "4548-4",
+      "a1c": 9.7,
+      "unit": "%",
+      "lab_time": "2026-04-11T14:33:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0046",
+      "loinc": "4548-4",
+      "a1c": 6.4,
+      "unit": "%",
+      "lab_time": "2026-04-15T16:49:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0047",
+      "loinc": "4548-4",
+      "a1c": 7.7,
+      "unit": "%",
+      "lab_time": "2026-04-20T14:13:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0049",
+      "loinc": "4548-4",
+      "a1c": 7.0,
+      "unit": "%",
+      "lab_time": "2026-04-12T16:19:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0050",
+      "loinc": "4548-4",
+      "a1c": 8.0,
+      "unit": "%",
+      "lab_time": "2026-04-12T12:15:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0051",
+      "loinc": "4548-4",
+      "a1c": 9.9,
+      "unit": "%",
+      "lab_time": "2026-04-22T11:12:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0052",
+      "loinc": "4548-4",
+      "a1c": 6.2,
+      "unit": "%",
+      "lab_time": "2026-04-27T11:46:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0053",
+      "loinc": "4548-4",
+      "a1c": 8.2,
+      "unit": "%",
+      "lab_time": "2026-04-10T13:53:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0054",
+      "loinc": "4548-4",
+      "a1c": 10.5,
+      "unit": "%",
+      "lab_time": "2026-04-04T12:45:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0055",
+      "loinc": "4548-4",
+      "a1c": 5.9,
+      "unit": "%",
+      "lab_time": "2026-04-15T15:17:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0057",
+      "loinc": "4548-4",
+      "a1c": 10.3,
+      "unit": "%",
+      "lab_time": "2026-04-05T12:45:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0058",
+      "loinc": "4548-4",
+      "a1c": 5.8,
+      "unit": "%",
+      "lab_time": "2026-04-05T16:28:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0059",
+      "loinc": "4548-4",
+      "a1c": 7.8,
+      "unit": "%",
+      "lab_time": "2026-04-03T14:12:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0060",
+      "loinc": "4548-4",
+      "a1c": 10.1,
+      "unit": "%",
+      "lab_time": "2026-04-08T16:09:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0061",
+      "loinc": "4548-4",
+      "a1c": 7.1,
+      "unit": "%",
+      "lab_time": "2026-04-20T14:51:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0062",
+      "loinc": "4548-4",
+      "a1c": 8.1,
+      "unit": "%",
+      "lab_time": "2026-04-25T09:17:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0063",
+      "loinc": "4548-4",
+      "a1c": 10.0,
+      "unit": "%",
+      "lab_time": "2026-04-03T09:26:00Z"
+    }
+  ],
+  "vitals": [
+    {
+      "pat_eid": "PAT-EID-0001",
+      "sbp": 109,
+      "dbp": 68,
+      "bmi": 22.6,
+      "vitals_time": "2026-05-01T06:03:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0002",
+      "sbp": 134,
+      "dbp": 76,
+      "bmi": 28.7,
+      "vitals_time": "2026-05-01T06:06:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0003",
+      "sbp": 127,
+      "dbp": 81,
+      "bmi": 25.1,
+      "vitals_time": "2026-05-01T06:09:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0004",
+      "sbp": 120,
+      "dbp": 70,
+      "bmi": 32.0,
+      "vitals_time": "2026-05-01T06:12:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0005",
+      "sbp": 125,
+      "dbp": 84,
+      "bmi": 28.8,
+      "vitals_time": "2026-05-01T06:15:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0006",
+      "sbp": 161,
+      "dbp": 95,
+      "bmi": 31.7,
+      "vitals_time": "2026-05-01T06:18:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0007",
+      "sbp": 118,
+      "dbp": 68,
+      "bmi": 29.2,
+      "vitals_time": "2026-05-01T06:21:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0008",
+      "sbp": 117,
+      "dbp": 79,
+      "bmi": 25.9,
+      "vitals_time": "2026-05-01T06:24:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0009",
+      "sbp": 164,
+      "dbp": 94,
+      "bmi": 41.9,
+      "vitals_time": "2026-05-01T06:27:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0010",
+      "sbp": 143,
+      "dbp": 86,
+      "bmi": 30.9,
+      "vitals_time": "2026-05-01T06:30:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0011",
+      "sbp": 132,
+      "dbp": 74,
+      "bmi": 32.3,
+      "vitals_time": "2026-05-01T06:33:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0012",
+      "sbp": 140,
+      "dbp": 88,
+      "bmi": 32.1,
+      "vitals_time": "2026-05-01T06:36:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0013",
+      "sbp": 136,
+      "dbp": 86,
+      "bmi": 33.3,
+      "vitals_time": "2026-05-01T06:39:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0014",
+      "sbp": 140,
+      "dbp": 94,
+      "bmi": 42.9,
+      "vitals_time": "2026-05-01T06:42:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0015",
+      "sbp": 111,
+      "dbp": 66,
+      "bmi": 23.4,
+      "vitals_time": "2026-05-01T06:45:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0016",
+      "sbp": 144,
+      "dbp": 87,
+      "bmi": 30.2,
+      "vitals_time": "2026-05-01T06:48:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0017",
+      "sbp": 155,
+      "dbp": 89,
+      "bmi": 31.8,
+      "vitals_time": "2026-05-01T06:51:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0018",
+      "sbp": 115,
+      "dbp": 81,
+      "bmi": 25.9,
+      "vitals_time": "2026-05-01T06:54:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0019",
+      "sbp": 139,
+      "dbp": 96,
+      "bmi": 36.9,
+      "vitals_time": "2026-05-01T06:57:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0020",
+      "sbp": 124,
+      "dbp": 88,
+      "bmi": 35.0,
+      "vitals_time": "2026-05-01T07:00:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0021",
+      "sbp": 117,
+      "dbp": 80,
+      "bmi": 24.6,
+      "vitals_time": "2026-05-01T07:03:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0022",
+      "sbp": 148,
+      "dbp": 89,
+      "bmi": 40.2,
+      "vitals_time": "2026-05-01T07:06:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0023",
+      "sbp": 129,
+      "dbp": 64,
+      "bmi": 21.5,
+      "vitals_time": "2026-05-01T07:09:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0024",
+      "sbp": 143,
+      "dbp": 86,
+      "bmi": 27.1,
+      "vitals_time": "2026-05-01T07:12:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0025",
+      "sbp": 142,
+      "dbp": 81,
+      "bmi": 36.1,
+      "vitals_time": "2026-05-01T07:15:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0026",
+      "sbp": 168,
+      "dbp": 96,
+      "bmi": 32.8,
+      "vitals_time": "2026-05-01T07:18:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0027",
+      "sbp": 131,
+      "dbp": 87,
+      "bmi": 35.3,
+      "vitals_time": "2026-05-01T07:21:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0028",
+      "sbp": 128,
+      "dbp": 78,
+      "bmi": 27.9,
+      "vitals_time": "2026-05-01T07:24:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0029",
+      "sbp": 122,
+      "dbp": 85,
+      "bmi": 36.0,
+      "vitals_time": "2026-05-01T07:27:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0030",
+      "sbp": 129,
+      "dbp": 64,
+      "bmi": 26.5,
+      "vitals_time": "2026-05-01T07:30:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0031",
+      "sbp": 120,
+      "dbp": 72,
+      "bmi": 23.0,
+      "vitals_time": "2026-05-01T07:33:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0032",
+      "sbp": 108,
+      "dbp": 82,
+      "bmi": 27.7,
+      "vitals_time": "2026-05-01T07:36:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0033",
+      "sbp": 130,
+      "dbp": 69,
+      "bmi": 29.5,
+      "vitals_time": "2026-05-01T07:39:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0034",
+      "sbp": 132,
+      "dbp": 89,
+      "bmi": 36.5,
+      "vitals_time": "2026-05-01T07:42:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0035",
+      "sbp": 136,
+      "dbp": 72,
+      "bmi": 21.9,
+      "vitals_time": "2026-05-01T07:45:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0036",
+      "sbp": 138,
+      "dbp": 79,
+      "bmi": 35.3,
+      "vitals_time": "2026-05-01T07:48:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0037",
+      "sbp": 124,
+      "dbp": 69,
+      "bmi": 22.8,
+      "vitals_time": "2026-05-01T07:51:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0038",
+      "sbp": 124,
+      "dbp": 85,
+      "bmi": 29.6,
+      "vitals_time": "2026-05-01T07:54:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0039",
+      "sbp": 132,
+      "dbp": 80,
+      "bmi": 31.9,
+      "vitals_time": "2026-05-01T07:57:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0040",
+      "sbp": 133,
+      "dbp": 83,
+      "bmi": 22.6,
+      "vitals_time": "2026-05-01T08:00:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0041",
+      "sbp": 144,
+      "dbp": 88,
+      "bmi": 32.9,
+      "vitals_time": "2026-05-01T08:03:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0042",
+      "sbp": 125,
+      "dbp": 71,
+      "bmi": 31.4,
+      "vitals_time": "2026-05-01T08:06:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0043",
+      "sbp": 149,
+      "dbp": 85,
+      "bmi": 32.0,
+      "vitals_time": "2026-05-01T08:09:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0044",
+      "sbp": 131,
+      "dbp": 90,
+      "bmi": 34.0,
+      "vitals_time": "2026-05-01T08:12:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0045",
+      "sbp": 126,
+      "dbp": 76,
+      "bmi": 36.9,
+      "vitals_time": "2026-05-01T08:15:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0046",
+      "sbp": 144,
+      "dbp": 74,
+      "bmi": 31.7,
+      "vitals_time": "2026-05-01T08:18:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0047",
+      "sbp": 163,
+      "dbp": 94,
+      "bmi": 36.4,
+      "vitals_time": "2026-05-01T08:21:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0048",
+      "sbp": 123,
+      "dbp": 74,
+      "bmi": 30.9,
+      "vitals_time": "2026-05-01T08:24:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0049",
+      "sbp": 133,
+      "dbp": 77,
+      "bmi": 30.7,
+      "vitals_time": "2026-05-01T08:27:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0050",
+      "sbp": 155,
+      "dbp": 85,
+      "bmi": 39.9,
+      "vitals_time": "2026-05-01T08:30:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0051",
+      "sbp": 122,
+      "dbp": 89,
+      "bmi": 33.7,
+      "vitals_time": "2026-05-01T08:33:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0052",
+      "sbp": 133,
+      "dbp": 80,
+      "bmi": 36.8,
+      "vitals_time": "2026-05-01T08:36:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0053",
+      "sbp": 127,
+      "dbp": 77,
+      "bmi": 28.3,
+      "vitals_time": "2026-05-01T08:39:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0054",
+      "sbp": 130,
+      "dbp": 70,
+      "bmi": 28.3,
+      "vitals_time": "2026-05-01T08:42:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0055",
+      "sbp": 145,
+      "dbp": 88,
+      "bmi": 28.5,
+      "vitals_time": "2026-05-01T08:45:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0056",
+      "sbp": 134,
+      "dbp": 82,
+      "bmi": 32.5,
+      "vitals_time": "2026-05-01T08:48:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0057",
+      "sbp": 136,
+      "dbp": 81,
+      "bmi": 32.1,
+      "vitals_time": "2026-05-01T08:51:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0058",
+      "sbp": 144,
+      "dbp": 86,
+      "bmi": 27.5,
+      "vitals_time": "2026-05-01T08:54:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0059",
+      "sbp": 118,
+      "dbp": 65,
+      "bmi": 21.7,
+      "vitals_time": "2026-05-01T08:57:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0060",
+      "sbp": 132,
+      "dbp": 77,
+      "bmi": 29.9,
+      "vitals_time": "2026-05-01T09:00:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0061",
+      "sbp": 136,
+      "dbp": 83,
+      "bmi": 31.0,
+      "vitals_time": "2026-05-01T09:03:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0062",
+      "sbp": 157,
+      "dbp": 98,
+      "bmi": 43.5,
+      "vitals_time": "2026-05-01T09:06:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0063",
+      "sbp": 133,
+      "dbp": 89,
+      "bmi": 30.6,
+      "vitals_time": "2026-05-01T09:09:00Z"
+    },
+    {
+      "pat_eid": "PAT-EID-0064",
+      "sbp": 156,
+      "dbp": 89,
+      "bmi": 38.5,
+      "vitals_time": "2026-05-01T09:12:00Z"
+    }
+  ]
+}

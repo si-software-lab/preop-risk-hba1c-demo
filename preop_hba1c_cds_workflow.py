@@ -18,6 +18,7 @@ import json
 import os
 from dataclasses import dataclass
 from datetime import date, datetime
+from pathlib import Path
 from typing import Any, Dict, Optional, Tuple
 
 import numpy as np
@@ -27,9 +28,16 @@ from azure.cosmos import CosmosClient
 import matplotlib.pyplot as plt
 
 
+DEFAULT_SAMPLE_COHORT_JSON = Path(__file__).resolve().with_name("sample-hba1c-cohort.json")
+IDENTIFIER_COL = "pat_eid"
+
+
 # config
 @dataclass(frozen=True)
 class Settings:
+    data_source: str
+    sample_cohort_json: str
+
     cosmos_url: str
     cosmos_key: str
     database_id: str
@@ -57,6 +65,17 @@ class Settings:
 
 def load_settings(args: argparse.Namespace) -> Settings:
     # env vars
+    data_source = (
+        args.data_source if getattr(args, "data_source", None) is not None else os.getenv("DATA_SOURCE", "sample")
+    ).strip().lower()
+    if data_source not in {"sample", "cosmos"}:
+        raise RuntimeError("DATA_SOURCE must be either 'sample' or 'cosmos'.")
+
+    sample_arg = args.sample_cohort_json or os.getenv("SAMPLE_COHORT_JSON") or str(DEFAULT_SAMPLE_COHORT_JSON)
+    sample_path = Path(sample_arg).expanduser()
+    if not sample_path.is_absolute():
+        sample_path = Path(__file__).resolve().parent / sample_path
+
     cosmos_url = os.getenv("COSMOS_URL", "").strip()
     cosmos_key = os.getenv("COSMOS_KEY", "").strip()
     database_id = os.getenv("DATABASE_ID", "").strip()
@@ -69,7 +88,8 @@ def load_settings(args: argparse.Namespace) -> Settings:
     fhir_base = os.getenv("FHIR_BASE", "").strip()
     oauth_bearer = os.getenv("OAUTH_BEARER", "").strip()
 
-    preop_date = args.preop_date or os.getenv("PREOP_DATE", date.today().isoformat()).strip()
+    default_preop_date = "2026-05-01" if data_source == "sample" else date.today().isoformat()
+    preop_date = args.preop_date or os.getenv("PREOP_DATE", default_preop_date).strip()
 
     # thresholds (default model: <7.5 low, 7.5–8.5 medium, >8.5 high)
     low_threshold = float(args.low if getattr(args, "low", None) is not None else os.getenv("HBA1C_LOW_THRESHOLD", "7.5"))
@@ -78,12 +98,14 @@ def load_settings(args: argparse.Namespace) -> Settings:
     # legacy single-threshold mode (optional; will be ignored if low/high provided)
     H = args.H if getattr(args, "H", None) is not None else (float(os.getenv("HBA1C_THRESHOLD_H", "0")) or None)
     delta = args.delta if getattr(args, "delta", None) is not None else (float(os.getenv("HBA1C_THRESHOLD_DELTA", "0")) or None)
-    if not cosmos_url or not cosmos_key or not database_id:
+    if data_source == "cosmos" and (not cosmos_url or not cosmos_key or not database_id):
         raise RuntimeError(
             "Missing Cosmos settings. Ensure COSMOS_URL, COSMOS_KEY, DATABASE_ID are set (see .env.example)."
         )
 
     return Settings(
+        data_source=data_source,
+        sample_cohort_json=str(sample_path),
         cosmos_url=cosmos_url,
         cosmos_key=cosmos_key,
         database_id=database_id,
@@ -119,12 +141,39 @@ def query_container(container, query: str, parameters: Optional[list] = None) ->
     ))
 
 
+def load_sample_data(sample_cohort_json: str | Path, preop_date: Optional[str] = None) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    sample_path = Path(sample_cohort_json).expanduser()
+    if not sample_path.is_absolute():
+        sample_path = Path(__file__).resolve().parent / sample_path
+    if not sample_path.exists():
+        raise FileNotFoundError(f"Sample cohort JSON not found: {sample_path}")
+
+    with sample_path.open("r", encoding="utf-8") as f:
+        sample = json.load(f)
+
+    df_pat = pd.DataFrame(sample.get("patients", []))
+    df_labs = pd.DataFrame(sample.get("labs", []))
+    df_vitals = pd.DataFrame(sample.get("vitals", []))
+
+    if preop_date and not df_pat.empty and "preop_date" in df_pat.columns:
+        df_pat = df_pat[df_pat["preop_date"].astype(str) == str(preop_date)].copy()
+
+    if not df_pat.empty and IDENTIFIER_COL in df_pat.columns:
+        cohort_ids = set(df_pat[IDENTIFIER_COL].dropna().astype(str))
+        if not df_labs.empty and IDENTIFIER_COL in df_labs.columns:
+            df_labs = df_labs[df_labs[IDENTIFIER_COL].astype(str).isin(cohort_ids)].copy()
+        if not df_vitals.empty and IDENTIFIER_COL in df_vitals.columns:
+            df_vitals = df_vitals[df_vitals[IDENTIFIER_COL].astype(str).isin(cohort_ids)].copy()
+
+    return df_pat, df_labs, df_vitals
+
+
 def load_preop_cohort(db, settings: Settings) -> pd.DataFrame:
     c_pat = db.get_container_client(settings.container_patient)
 
     q = """
     SELECT
-        c.patient_id,
+        c.pat_eid,
         c.encounter.id AS encounter_id,
         c.encounter.preop_date AS preop_date,
         c.birthdate,
@@ -143,7 +192,7 @@ def load_a1c_labs(db, settings: Settings) -> pd.DataFrame:
     # pull hba1c lab records that exist (across all patients; we filter after merge)
     q = """
     SELECT
-        c.patient_id,
+        c.pat_eid,
         c.labs.a1c.value AS a1c,
         c.labs.a1c.effectiveDateTime AS lab_time
     FROM c
@@ -158,8 +207,8 @@ def load_a1c_labs(db, settings: Settings) -> pd.DataFrame:
     df["lab_time"] = pd.to_datetime(df["lab_time"], errors="coerce", utc=True)
     df["a1c"] = pd.to_numeric(df["a1c"], errors="coerce")
     df = df.dropna(subset=["a1c"])
-    df = df.sort_values(["patient_id", "lab_time"]).groupby("patient_id", as_index=False).tail(1)
-    return df[["patient_id", "a1c", "lab_time"]]
+    df = df.sort_values([IDENTIFIER_COL, "lab_time"]).groupby(IDENTIFIER_COL, as_index=False).tail(1)
+    return df[[IDENTIFIER_COL, "a1c", "lab_time"]]
 
 
 def load_vitals(db, settings: Settings) -> pd.DataFrame:
@@ -168,7 +217,7 @@ def load_vitals(db, settings: Settings) -> pd.DataFrame:
     # if vitals have a date field, filter by preop_date. otherwise, pull recent and filter here
     q = """
     SELECT
-        c.patient_id,
+        c.pat_eid,
         c.vitals.bp.systolic AS sbp,
         c.vitals.bp.diastolic AS dbp,
         c.vitals.bmi AS bmi,
@@ -187,9 +236,9 @@ def load_vitals(db, settings: Settings) -> pd.DataFrame:
 
     # keep most recent vitals per patient (best-effort)
     if "vitals_time" in df.columns:
-        df = df.sort_values(["patient_id", "vitals_time"]).groupby("patient_id", as_index=False).tail(1)
+        df = df.sort_values([IDENTIFIER_COL, "vitals_time"]).groupby(IDENTIFIER_COL, as_index=False).tail(1)
 
-    return df[["patient_id", "sbp", "dbp", "bmi", "vitals_time"]]
+    return df[[IDENTIFIER_COL, "sbp", "dbp", "bmi", "vitals_time"]]
 
 
 
@@ -423,7 +472,7 @@ def send_fhir_alerts(df: pd.DataFrame, settings: Settings) -> None:
         if action == "None":
             continue
 
-        patient_ref = f"Patient/{row['patient_id']}"
+        patient_ref = f"Patient/{row[IDENTIFIER_COL]}"
         encounter_ref = f"Encounter/{row['encounter_id']}"
 
         comm = {
@@ -461,6 +510,10 @@ def send_fhir_alerts(df: pd.DataFrame, settings: Settings) -> None:
 # main action
 def main() -> int:
     parser = argparse.ArgumentParser()
+    parser.add_argument("--data-source", choices=["sample", "cosmos"], default=None,
+                        help="Data source to run: sample JSON or Cosmos (env: DATA_SOURCE; default sample)")
+    parser.add_argument("--sample-cohort-json", default=None,
+                        help="Path to sample cohort JSON (env: SAMPLE_COHORT_JSON; default sample-hba1c-cohort.json)")
     parser.add_argument("--preop-date", default=None, help="YYYY-MM-DD (defaults to today or PREOP_DATE env)")
 
     parser.add_argument("--low", type=float, default=None,
@@ -472,9 +525,10 @@ def main() -> int:
     parser.add_argument("--H", type=float, default=None, help="[DEPRECATED] HbA1c action threshold (env: HBA1C_THRESHOLD_H)")
     parser.add_argument("--delta", type=float, default=None, help="[DEPRECATED] Near-threshold band width (env: HBA1C_THRESHOLD_DELTA)")
 
-    parser.add_argument("--dry-run", action="store_true", help="Do not POST to FHIR; still compute outputs")
+    parser.add_argument("--dry-run", dest="dry_run", action="store_true", help="Do not POST to FHIR; still compute outputs")
+    parser.add_argument("--send-fhir", dest="dry_run", action="store_false", help="POST generated resources to FHIR_BASE")
     parser.add_argument("--no-plot", dest="plot", action="store_false", help="Disable matplotlib chart")
-    parser.set_defaults(plot=True)
+    parser.set_defaults(plot=True, dry_run=True)
 
     parser.add_argument("--enable-prediction", action="store_true",
                         help="Predict HbA1c when missing via sparse regression (adelie)")
@@ -484,18 +538,20 @@ def main() -> int:
     args = parser.parse_args()
     settings = load_settings(args)
 
-    client = cosmos_client(settings)
-    db = client.get_database_client(settings.database_id)
-
-    df_pat = load_preop_cohort(db, settings)
-    df_labs = load_a1c_labs(db, settings)
-    df_vitals = load_vitals(db, settings)
+    if settings.data_source == "cosmos":
+        client = cosmos_client(settings)
+        db = client.get_database_client(settings.database_id)
+        df_pat = load_preop_cohort(db, settings)
+        df_labs = load_a1c_labs(db, settings)
+        df_vitals = load_vitals(db, settings)
+    else:
+        df_pat, df_labs, df_vitals = load_sample_data(settings.sample_cohort_json, settings.preop_date)
 
     if df_pat.empty:
         print(f"No pre-op cohort found for preop_date={settings.preop_date}.")
         return 0
 
-    df = df_pat.merge(df_labs, on="patient_id", how="left").merge(df_vitals, on="patient_id", how="left")
+    df = df_pat.merge(df_labs, on=IDENTIFIER_COL, how="left").merge(df_vitals, on=IDENTIFIER_COL, how="left")
     df = add_age(df)
 
     # optional: predict a1c where missing
@@ -542,7 +598,7 @@ def main() -> int:
         plt.show()
 
     # print compact view for COB dev-to-tst sanity check
-    cols = ["patient_id", "encounter_id", "preop_date", "a1c", "a1c_used", "tier", "risk_category", "workflow_action"]
+    cols = [IDENTIFIER_COL, "encounter_id", "preop_date", "a1c", "a1c_used", "tier", "risk_category", "workflow_action"]
     existing = [c for c in cols if c in df.columns]
     print(df[existing].to_string(index=False))
 
